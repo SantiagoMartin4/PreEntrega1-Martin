@@ -1,0 +1,9 @@
+.cart {
+    max-height: 40 px;
+    max-width: 40px;
+}
+.cartDiv {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
