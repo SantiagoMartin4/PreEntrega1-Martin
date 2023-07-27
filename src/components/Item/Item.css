@@ -1,0 +1,8 @@
+.card {
+    display: flex;
+    align-items: center;
+}
+.img {
+    max-width: 5rem;
+
+}
