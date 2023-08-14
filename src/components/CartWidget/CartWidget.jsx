@@ -2,7 +2,7 @@ import './CartWidget.css';
 import carrito from '../../assets/img/carrito.png';
 
 
-function cart () {
+export const CartWidget = () => {
     return (
         <div className='cartDiv'>
             <img className='cart' src={carrito} alt='Cart Widget'></img>
@@ -11,7 +11,8 @@ function cart () {
     )
 }
 
-export default cart;
+export default CartWidget;
+
 
 
 
