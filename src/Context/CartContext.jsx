@@ -1,10 +1,10 @@
-import React, { Children, useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 
 const CartContext = React.createContext([]);
 
 export const useCartContext = () => useContext(CartContext);
 
-const CartProvider = ( {Children} ) => {
+const CartProvider = ({ children }) => {
 /* Voy a hacer:
 funcion que devuelva true o false segun haya o no un producto en el carrito 
 otra para limpiar el carrito 
@@ -23,13 +23,23 @@ otra para agregar el prod al carrito, que tiene la logica para no aceptar duplic
     /* esta funcion recibe un id y devuelve el carrito mediante un filter con todos los productos menos el que contenga ese id que le paso (el filter hace eso)
  */
 
-    const addProduct = (product, newAmount) => {
+/*     const addProduct = (product, newAmount) => {
         const newCart = cart.filter(prod => prod.id !== product.id);
         newCart.push({ ...product, amount: newAmount});
         setCart(newCart)
+    } OPCION NUMERO 1 DE FUNCION ADD PRODUCT*/
+
+    const addProduct = (product, amount) => {
+        if(isInCart(product.id)) {
+            setCart(cart.map(prod => {
+                return prod.id === product.id ? { ...prod, amount: prod.amount + amount} : prod
+            }));
+        } else {
+            setCart([...cart, { ...product, amount: amount}]);
+        }
     }
 
-    console.log(cart);
+    console.log('carrito:', cart);
 
 
     return (
@@ -39,9 +49,9 @@ otra para agregar el prod al carrito, que tiene la logica para no aceptar duplic
             removeProduct: removeProduct,
             addProduct: addProduct,
         }}>
-            {Children}
+            {children}
         </CartContext.Provider>
     )
 }
 
-export default CartProvider
+export default CartProvider;
