@@ -41,6 +41,13 @@ otra para agregar el prod al carrito, que tiene la logica para no aceptar duplic
 
     console.log('carrito:', cart);
 
+    const totalPrice = () => {
+        return cart.reduce((prev, act) => prev + act.amount * act.price, 0);
+    }
+
+    /* con reduce recorro el carrito por cada objeto voy multiplicando el amount por el price y lo sumo al siguiente. Me arroja el costo total del carrito */
+    const totalProducts = () => cart.reduce((acumulator, actualProduct) => acumulator + actualProduct.amount, 0); 
+    /* esta funcion usa un reduce para saber que cantidad de productos tengo en el carrito */
 
     return (
         <CartContext.Provider value={{
@@ -48,6 +55,9 @@ otra para agregar el prod al carrito, que tiene la logica para no aceptar duplic
             isInCart: isInCart,
             removeProduct: removeProduct,
             addProduct: addProduct,
+            totalPrice: totalPrice,
+            totalProducts: totalProducts,
+            cart
         }}>
             {children}
         </CartContext.Provider>

@@ -19,7 +19,7 @@ const ItemDetail = ( {product} ) => {
     return (
         <div className='d-flex flex-column align-items-center'>
             <h3>detalle de: {product.name} </h3>
-            <img src={product.img} />
+            <img src={product.img} alt={product.name}/>
             <p>{product.description}</p>
             <p>${product.price}</p>
             
