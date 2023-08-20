@@ -15,7 +15,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={ <ItemListContainer greet='Somos SySTec - Servicios y Soluciones Tecnológicas'/> }/>    
-          <Route path='/category/:categoryId' element={ <ItemListContainer greet='Productos en la categoría: '/> }/>
+          <Route path='/category/:categoryId' element={ <ItemListContainer greet='Productos de la categoría '/> }/>
           <Route path='/cart' element={<Cart />} />
           <Route path='/item/:id' element={ <ItemDetailContainer/> }/>    
         </Routes>

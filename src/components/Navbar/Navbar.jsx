@@ -17,7 +17,6 @@ function systecNavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={NavLink} to='/'>Inicio</Nav.Link>
-            <Nav.Link href="#link">Nosotros</Nav.Link>
             <NavDropdown title="Productos">
               <NavDropdown.Item as={NavLink} to='/category/notebooks'>Notebooks</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to='/category/placasgpu'>Placas de Video</NavDropdown.Item>

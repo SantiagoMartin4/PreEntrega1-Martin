@@ -13,13 +13,15 @@ const ItemDetail = ( {product} ) => {
     const handleOnAdd = (amount) => {
         setAmountAdded(amount);
         addProduct(product, amount);
-        
+    }
+        if(product.img === undefined) {
+            return <div>Loading...</div>
     }
     
     return (
         <div className='d-flex flex-column align-items-center'>
             <h3>detalle de: {product.name} </h3>
-            <img src={product.img} alt={product.name}/>
+            <img style={{ maxWidth: '30%' }} src={product.img} alt={product.name}/>
             <p>{product.description}</p>
             <p>${product.price}</p>
             
